@@ -1,0 +1,14 @@
+body { font-family: 'Geist Sans', sans-serif; }
+.text-balance { text-wrap: balance; }
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+    animation: scroll 40s linear infinite;
+}
+
+/* Hide scrollbar for cleaner look */
+::-webkit-scrollbar { display: none; }
