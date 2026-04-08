@@ -11,18 +11,26 @@
 
     <!-- Navigation -->
     <nav id="main-nav" class="fixed z-50 transition-colors duration-300 top-0 right-0 left-0">
-        <div class="flex transition-all duration-500 ease-in-out transform w-full h-16 mr-auto ml-auto pr-8 pl-8 items-center justify-between" id="nav-container">
-    <a href="#" class="text-xl font-normal tracking-tight">Albert.</a>
-    <div class="hidden md:flex gap-8 text-base font-normal text-zinc-500 items-center">
-        <a href="#work" class="hover:text-zinc-900 transition-colors">Work</a>
-        <a href="#skills" class="hover:text-zinc-900 transition-colors">Skills</a>
-        <a href="#about" class="hover:text-zinc-900 transition-colors">About</a>
-        <a href="#contact" class="hover:text-zinc-900 transition-colors">Contact</a>
-    </div>
-    <button class="md:hidden text-zinc-900">
-                <iconify-icon icon="solar:hamburger-menu-linear" width="24" height="24"></iconify-icon>
-            </button>
-</div>
+        <div class="transition-all duration-500 ease-in-out transform w-full mr-auto ml-auto pr-6 pl-6 overflow-hidden" id="nav-container">
+            <div class="flex h-16 items-center justify-between">
+                <a href="#" class="text-xl font-normal tracking-tight">Albert.</a>
+                <div class="hidden md:flex gap-8 text-base font-normal text-zinc-500 items-center">
+                    <a href="#work" class="hover:text-zinc-900 transition-colors">Work</a>
+                    <a href="#skills" class="hover:text-zinc-900 transition-colors">Skills</a>
+                    <a href="#about" class="hover:text-zinc-900 transition-colors">About</a>
+                    <a href="#contact" class="hover:text-zinc-900 transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-toggle" class="md:hidden text-zinc-900" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+                    <iconify-icon icon="solar:hamburger-menu-linear" width="24" height="24"></iconify-icon>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden w-full border-t border-zinc-200/60 max-h-0 opacity-0 overflow-hidden pointer-events-none transition-all duration-300 ease-in-out">
+                <a href="#work" class="mobile-nav-link text-xl block py-3 text-base text-zinc-700 hover:text-zinc-900 transition-colors text-left">Work</a>
+                <a href="#skills" class="mobile-nav-link text-xl block py-3 text-base text-zinc-700 hover:text-zinc-900 transition-colors text-left">Skills</a>
+                <a href="#about" class="mobile-nav-link text-xl block py-3 text-base text-zinc-700 hover:text-zinc-900 transition-colors text-left">About</a>
+                <a href="#contact" class="mobile-nav-link text-xl block pt-3 pb-5 text-base text-zinc-700 hover:text-zinc-900 transition-colors text-left">Contact</a>
+            </div>
+        </div>
     </nav>
 
     <main class="md:px-14 lg:px-14 mx-auto pr-8 pl-8">
