@@ -1,6 +1,26 @@
 body { font-family: 'Geist Sans', sans-serif; }
 .text-balance { text-wrap: balance; }
 
+@keyframes hero-arrow-nudge {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, 3px, 0); }
+}
+
+/* Animate a wrapper — transforms on raw <svg> are unreliable in some browsers */
+.hero-view-work-arrow {
+    display: inline-flex;
+    flex-shrink: 0;
+    animation: hero-arrow-nudge 1.35s ease-in-out infinite;
+}
+
+.hero-view-work-arrow svg {
+    display: block;
+}
+
+.hero-view-work-btn:hover .hero-view-work-arrow {
+    animation: none;
+}
+
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
