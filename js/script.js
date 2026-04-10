@@ -181,4 +181,161 @@ document.addEventListener('DOMContentLoaded', () => {
             currentHighlight = (currentHighlight + 1) % skillTags.length;
         }, 2000);
     }
+
+    const workGalleryRoot = document.getElementById('work-media-gallery');
+    const workScroller = workGalleryRoot && workGalleryRoot.querySelector('.work-gallery-scroll');
+    const workSlides = workGalleryRoot ? workGalleryRoot.querySelectorAll('.work-gallery-slide') : [];
+    const workTabs = document.querySelectorAll('[data-work-slide]');
+    const workAutoplayBtn = document.getElementById('work-gallery-autoplay');
+
+    if (workGalleryRoot && workScroller && workSlides.length && workTabs.length === workSlides.length && workAutoplayBtn) {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let activeIndex = 0;
+        let autoplayOn = !reduceMotion;
+        let autoplayTimer = null;
+        let scrollTicking = false;
+        const autoplayMs = 6000;
+
+        function clearAutoplay() {
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        }
+
+        function syncAutoplayUi() {
+            if (reduceMotion) {
+                workAutoplayBtn.setAttribute('data-autoplay', 'false');
+                workAutoplayBtn.setAttribute('aria-label', 'Autoplay off (reduced motion)');
+                workAutoplayBtn.disabled = true;
+                return;
+            }
+            workAutoplayBtn.setAttribute('data-autoplay', autoplayOn ? 'true' : 'false');
+            workAutoplayBtn.setAttribute('aria-label', autoplayOn ? 'Pause slideshow' : 'Play slideshow');
+            workAutoplayBtn.disabled = false;
+        }
+
+        function setActiveIndex(next) {
+            const i = Math.max(0, Math.min(workSlides.length - 1, next));
+            activeIndex = i;
+            workTabs.forEach((tab, j) => {
+                const on = j === i;
+                tab.setAttribute('aria-selected', on ? 'true' : 'false');
+                tab.tabIndex = on ? 0 : -1;
+            });
+            workSlides.forEach((slide, j) => {
+                slide.classList.toggle('work-gallery-slide-active', j === i);
+            });
+        }
+
+        function getNearestSlideIndex() {
+            const viewportCenter = workScroller.scrollLeft + workScroller.clientWidth / 2;
+            let nearest = 0;
+            let minDistance = Infinity;
+            workSlides.forEach((slide, index) => {
+                const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+                const distance = Math.abs(slideCenter - viewportCenter);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    nearest = index;
+                }
+            });
+            return nearest;
+        }
+
+        function goToSlide(index, useSmooth) {
+            const slide = workSlides[index];
+            if (!slide) return;
+            const targetLeft = slide.offsetLeft - (workScroller.clientWidth - slide.offsetWidth) / 2;
+            const behavior = reduceMotion || useSmooth === false ? 'auto' : 'smooth';
+            workScroller.scrollTo({ left: Math.max(0, targetLeft), behavior });
+            if (behavior === 'auto') {
+                setActiveIndex(index);
+            }
+        }
+
+        function syncFromScroll() {
+            const next = getNearestSlideIndex();
+            if (next !== activeIndex) {
+                setActiveIndex(next);
+            }
+        }
+
+        function startAutoplay() {
+            clearAutoplay();
+            if (!autoplayOn || reduceMotion) return;
+            autoplayTimer = window.setInterval(() => {
+                const next = (activeIndex + 1) % workSlides.length;
+                goToSlide(next, true);
+            }, autoplayMs);
+        }
+
+        workTabs.forEach((tab) => {
+            tab.addEventListener('click', () => {
+                const i = parseInt(tab.getAttribute('data-work-slide'), 10);
+                if (Number.isNaN(i)) return;
+                autoplayOn = false;
+                syncAutoplayUi();
+                clearAutoplay();
+                goToSlide(i, true);
+            });
+        });
+
+        workAutoplayBtn.addEventListener('click', () => {
+            if (reduceMotion) return;
+            autoplayOn = !autoplayOn;
+            syncAutoplayUi();
+            if (autoplayOn) startAutoplay();
+            else clearAutoplay();
+        });
+
+        workScroller.addEventListener('pointerdown', () => {
+            if (reduceMotion) return;
+            autoplayOn = false;
+            syncAutoplayUi();
+            clearAutoplay();
+        });
+
+        workScroller.addEventListener('scroll', () => {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            window.requestAnimationFrame(() => {
+                syncFromScroll();
+                scrollTicking = false;
+            });
+        }, { passive: true });
+
+        setActiveIndex(getNearestSlideIndex());
+        syncAutoplayUi();
+        startAutoplay();
+
+        workScroller.addEventListener('keydown', (e) => {
+            if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+            e.preventDefault();
+            const delta = e.key === 'ArrowRight' ? 1 : -1;
+            const next = (activeIndex + delta + workSlides.length) % workSlides.length;
+            autoplayOn = false;
+            syncAutoplayUi();
+            clearAutoplay();
+            goToSlide(next, true);
+        });
+
+        const workTablist = document.getElementById('work-gallery-tablist');
+        if (workTablist) {
+            workTablist.addEventListener('keydown', (e) => {
+                if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+                e.preventDefault();
+                const delta = e.key === 'ArrowRight' ? 1 : -1;
+                let next = activeIndex + delta;
+                if (next < 0) next = workSlides.length - 1;
+                if (next >= workSlides.length) next = 0;
+                goToSlide(next, true);
+                workTabs[next].focus();
+            });
+        }
+
+        window.addEventListener('resize', () => {
+            goToSlide(activeIndex, false);
+        });
+    }
 });

@@ -32,3 +32,80 @@ body { font-family: 'Geist Sans', sans-serif; }
 
 /* Hide scrollbar for cleaner look */
 ::-webkit-scrollbar { display: none; }
+
+/* Work highlights — horizontal snap carousel (Apple-style) */
+.work-gallery-scroll {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 9vw;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0.25rem;
+}
+
+.work-gallery-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .work-gallery-scroll {
+        gap: 1.5rem;
+        scroll-padding-inline: 5rem;
+    }
+}
+
+.work-gallery-slide {
+    flex: 0 0 clamp(17rem, 82vw, 68rem);
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+}
+
+.work-gallery-slide {
+    transition: transform 360ms cubic-bezier(0.25, 1, 0.5, 1), opacity 280ms ease;
+    opacity: 0.86;
+}
+
+.work-gallery-slide-active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+@media (min-width: 768px) {
+    .work-gallery-slide {
+        flex-basis: min(calc(100vw - 10rem), 68rem);
+    }
+}
+
+.work-gallery-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: rgb(212 212 216);
+    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease;
+}
+
+.work-gallery-dot[aria-selected="true"] {
+    width: 1.75rem;
+    background-color: rgb(24 24 27);
+}
+
+.work-gallery-autoplay .icon-pause {
+    display: block;
+}
+
+.work-gallery-autoplay .icon-play {
+    display: none;
+}
+
+.work-gallery-autoplay[data-autoplay="false"] .icon-pause {
+    display: none;
+}
+
+.work-gallery-autoplay[data-autoplay="false"] .icon-play {
+    display: block;
+}
