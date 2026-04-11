@@ -339,3 +339,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Hero Video Circle Interaction
+document.addEventListener('DOMContentLoaded', () => {
+    const heroVideoCircle = document.querySelector('.hero-video-circle');
+    if (!heroVideoCircle) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let orientationGamma = 0; // Left-right tilt
+    let orientationBeta = 0;  // Front-back tilt
+    let circleX = 0;
+    let circleY = 0;
+    let scrollY = 0;
+    let lastScrollY = 0;
+    let scrollVelocity = 0;
+    const lerpFactor = 0.02; // Slower smooth following factor
+    const scrollSensitivity = 0.3; // How much scroll affects Y position
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+
+    // Track mouse position (desktop)
+    if (!isMobile) {
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+    }
+
+    // Track device orientation (mobile)
+    if (isMobile && window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', (e) => {
+            orientationGamma = e.gamma || 0; // Left-right tilt (-90 to 90)
+            orientationBeta = e.beta || 0;   // Front-back tilt (-180 to 180)
+        });
+    }
+
+    // Track scroll
+    window.addEventListener('scroll', () => {
+        scrollY = window.scrollY;
+        scrollVelocity = scrollY - lastScrollY;
+        lastScrollY = scrollY;
+    });
+
+    // Animation loop
+    function animate() {
+        let deltaX = 0;
+        let deltaY = 0;
+
+        if (isMobile) {
+            // Use device orientation for mobile
+            deltaX = orientationGamma * 2; // Scale the tilt
+            deltaY = (orientationBeta - 45) * 1.5; // Adjust beta range
+        } else {
+            // Smooth follow mouse for desktop
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            deltaX = (mouseX - centerX) * 0.1; // Small movement
+            deltaY = (mouseY - centerY) * 0.1;
+        }
+
+        circleX += (deltaX - circleX) * lerpFactor;
+        circleY += (deltaY - circleY) * lerpFactor;
+
+        // Add scroll effect (move up when scrolling down)
+        const scrollOffset = -scrollVelocity * scrollSensitivity;
+        circleY += scrollOffset;
+
+        // Apply transform
+        heroVideoCircle.style.transform = `translate(${circleX}px, ${circleY}px)`;
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+});
