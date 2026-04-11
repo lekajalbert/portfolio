@@ -44,22 +44,32 @@
     <main class="md:px-14 lg:px-14 mx-auto pr-8 pl-8">
 
         <!-- Hero Section -->
-        <section class="min-h-screen flex flex-col items-center justify-center">
-            <p class="uppercase text-sm font-normal text-neutral-500 tracking-widest">Open for Work</p>
-            <h1 class="md:text-7xl lg:text-8xl leading-[1.05] text-balance text-5xl font-normal tracking-tight text-center max-w-6xl mt-6 mb-12">
-    <span class="text-zinc-950">I'm Albert — Product Designer turning ideas into intuitive, scalable products</span><br class="">
-</h1>
+        <section class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+            <div class="hero-video-circle absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="hero-video-mask">
+                    <video class="hero-video" autoplay muted loop playsinline src="./videos/hero-video.mp4"></video>
+                </div>
+            </div>
 
-            <div class="flex gap-x-3 gap-y-3 items-center">
-                <a href="#work" class="hero-view-work-btn group inline-flex items-center gap-3 hover:bg-zinc-800 transition-colors text-base font-normal text-white bg-zinc-900 rounded-full py-3.5 px-6">
-                    View Work
-                    <span class="hero-view-work-arrow w-[13px] h-[13px]" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[13px] h-[13px]">
-                            <path d="M12 5v14"></path>
-                            <path d="m19 12-7 7-7-7"></path>
-                        </svg>
-                    </span>
-                </a>
+            <div class="relative z-10 flex flex-col items-center justify-center">
+                <div class="bg-gray-100/50 px-2.5 py-1 rounded-full flex items-center backdrop-blur-lg  border-[#e4e4e4] border-[1px]">
+                    <span class="w-[10px] h-[10px] bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                    <p class="uppercase text-[12px] font-normal text-neutral-500 tracking-widest">Open for Work</p>
+                </div>
+                <h1 class="md:text-7xl lg:text-8xl leading-[1.05] text-balance text-5xl font-normal tracking-tight text-center max-w-6xl mt-6 mb-12">
+                    <span class="text-zinc-950">I'm Albert — Product Designer turning ideas into intuitive, scalable products</span><br class="">
+                </h1>
+                <div class="flex gap-x-3 gap-y-3 items-center">
+                    <a href="#work" class="hero-view-work-btn group inline-flex items-center gap-3 hover:bg-zinc-800 transition-colors text-base font-normal text-white bg-zinc-900 rounded-full py-3.5 px-6">
+                        View Work
+                        <span class="hero-view-work-arrow w-[13px] h-[13px]" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[13px] h-[13px]">
+                                <path d="M12 5v14"></path>
+                                <path d="m19 12-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
             </div>
         </section>
 
