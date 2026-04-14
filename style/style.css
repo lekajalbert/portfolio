@@ -27,6 +27,14 @@ body { font-family: 'Geist Sans', sans-serif; }
     object-fit: cover;
 }
 
+.hero-video::-webkit-media-controls {
+    display: none;
+}
+
+.hero-video::-moz-media-controls {
+    display: none;
+}
+
 @keyframes hero-arrow-nudge {
     0%, 100% { transform: translate3d(0, 0, 0); }
     50% { transform: translate3d(0, 3px, 0); }

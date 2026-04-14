@@ -351,12 +351,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let orientationBeta = 0;  // Front-back tilt
     let circleX = 0;
     let circleY = 0;
-    let scrollY = 0;
-    let lastScrollY = 0;
-    let scrollVelocity = 0;
     const lerpFactor = 0.02; // Slower smooth following factor
-    const scrollSensitivity = 0.3; // How much scroll affects Y position
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     // Track mouse position (desktop)
     if (!isMobile) {
@@ -373,13 +369,6 @@ document.addEventListener('DOMContentLoaded', () => {
             orientationBeta = e.beta || 0;   // Front-back tilt (-180 to 180)
         });
     }
-
-    // Track scroll
-    window.addEventListener('scroll', () => {
-        scrollY = window.scrollY;
-        scrollVelocity = scrollY - lastScrollY;
-        lastScrollY = scrollY;
-    });
 
     // Animation loop
     function animate() {
@@ -401,10 +390,6 @@ document.addEventListener('DOMContentLoaded', () => {
         circleX += (deltaX - circleX) * lerpFactor;
         circleY += (deltaY - circleY) * lerpFactor;
 
-        // Add scroll effect (move up when scrolling down)
-        const scrollOffset = -scrollVelocity * scrollSensitivity;
-        circleY += scrollOffset;
-
         // Apply transform
         heroVideoCircle.style.transform = `translate(${circleX}px, ${circleY}px)`;
 
@@ -413,3 +398,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animate();
 });
+
+// Ensure video autoplay on all devices
+document.addEventListener('DOMContentLoaded', () => {
+    const heroVideo = document.querySelector('.hero-video');
+    if (!heroVideo) return;
+
+    // Try to play immediately
+    const playPromise = heroVideo.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            // Autoplay failed, try again on user interaction
+            const playOnInteraction = () => {
+                heroVideo.play().catch(() => {});
+                document.removeEventListener('click', playOnInteraction);
+                document.removeEventListener('touchstart', playOnInteraction);
+            };
+            document.addEventListener('click', playOnInteraction);
+            document.addEventListener('touchstart', playOnInteraction);
+        });
+    }
+});
+
