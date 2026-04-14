@@ -132,56 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const skillsSection = document.getElementById('skills');
-    const skillTags = document.querySelectorAll('.skill-tag');
-
-    if (skillsSection && skillTags.length > 0) {
-        // Scroll Parallax Effect
-        let ticking = false;
-
-        function updateParallax() {
-            const rect = skillsSection.getBoundingClientRect();
-            const centerOffset = (rect.top + rect.height / 2) - (window.innerHeight / 2);
-
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                skillTags.forEach((tag, i) => {
-                    const dirY = i % 2 === 0 ? -1 : 1;
-                    const speedY = 0.03 + (i % 5) * 0.02;
-                    const y = centerOffset * speedY * dirY;
-                    tag.style.transform = `translate3d(0, ${y}px, 0)`;
-                });
-            }
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        });
-        updateParallax();
-
-        // Continuous Highlight Loop
-        let currentHighlight = 0;
-
-        setInterval(() => {
-            // Reset previous tag
-            const prevIndex = currentHighlight === 0 ? skillTags.length - 1 : currentHighlight - 1;
-            const prevTag = skillTags[prevIndex];
-
-            prevTag.classList.remove('bg-zinc-900', 'text-white', 'border-transparent', 'scale-110', 'shadow-xl', 'z-20');
-            prevTag.classList.add('bg-white', 'text-zinc-600', 'border-zinc-200/60', 'shadow-sm', 'z-0');
-
-            // Highlight new tag
-            const currentTag = skillTags[currentHighlight];
-            currentTag.classList.remove('bg-white', 'text-zinc-600', 'border-zinc-200/60', 'shadow-sm', 'z-0');
-            currentTag.classList.add('bg-zinc-900', 'text-white', 'border-transparent', 'scale-110', 'shadow-xl', 'z-20');
-
-            currentHighlight = (currentHighlight + 1) % skillTags.length;
-        }, 2000);
-    }
-
     const workGalleryRoot = document.getElementById('work-media-gallery');
     const workScroller = workGalleryRoot && workGalleryRoot.querySelector('.work-gallery-scroll');
     const workSlides = workGalleryRoot ? workGalleryRoot.querySelectorAll('.work-gallery-slide') : [];
