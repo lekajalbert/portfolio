@@ -7,7 +7,7 @@ body { font-family: 'Geist Sans', sans-serif; }
 
 .hero-video-mask {
     position: relative;
-    width: clamp(260px, 42vw, 560px);
+    width: clamp(360px, 42vw, 560px);
     aspect-ratio: 1 / 1;
     border-radius: 9999px;
     overflow: hidden;
@@ -33,6 +33,39 @@ body { font-family: 'Geist Sans', sans-serif; }
 
 .hero-video::-moz-media-controls {
     display: none;
+}
+
+.color-changing {
+    animation: colorCycle 7s infinite;
+}
+
+@keyframes colorCycle {
+    0% { color: #FF6B6B; }
+    12.5% { color: #4ECDC4; }
+    25% { color: #45B7D1; }
+    37.5% { color: #96CEB4; }
+    50% { color: #FFEAA7; }
+    62.5% { color: #DDA0DD; }
+    75% { color: #98D8C8; }
+    87.5% { color: #F7DC6F; }
+    100% { color: #FF6B6B; }
+}
+
+.skill-list {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 0.75rem;
+    margin: 0;
+}
+
+.skill-list li {
+    margin-bottom: 0.35rem;
+}
+
+.skill-list li::marker {
+    color: #71717a;
+    font-size: 0.85em;
+    margin-right: 0.15rem;
 }
 
 @keyframes hero-arrow-nudge {
