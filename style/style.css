@@ -152,13 +152,13 @@ body { font-family: 'Geist Sans', sans-serif; }
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 9999px;
-    background-color: rgb(212 212 216);
+    background-color: rgba(255, 255, 255, 0.35);
     transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease;
 }
 
 .work-gallery-dot[aria-selected="true"] {
     width: 1.75rem;
-    background-color: rgb(24 24 27);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .work-gallery-autoplay .icon-pause {
