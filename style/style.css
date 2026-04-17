@@ -112,7 +112,8 @@ body { font-family: 'Geist Sans', sans-serif; }
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
 }
 
 .work-gallery-scroll::-webkit-scrollbar {
@@ -175,4 +176,34 @@ body { font-family: 'Geist Sans', sans-serif; }
 
 .work-gallery-autoplay[data-autoplay="false"] .icon-play {
     display: block;
+}
+
+.payverge-card-media {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.payverge-card-image {
+    position: absolute;
+    top: 12%;
+    right: -100%;
+    width: 157%;
+    max-width: none;
+}
+
+@media (min-width: 768px) {
+    .payverge-card-image {
+        top: 6%;
+        right: -43%;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .payverge-card-image {
+        top: 8%;
+        right: -10%;
+        width: 73%;
+    }
 }
