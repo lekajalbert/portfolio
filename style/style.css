@@ -1,5 +1,10 @@
-body { font-family: 'Geist Sans', sans-serif; }
-.text-balance { text-wrap: balance; }
+body {
+    font-family: 'Geist Sans', sans-serif;
+}
+
+.text-balance {
+    text-wrap: balance;
+}
 
 .hero-video-circle {
     z-index: 0;
@@ -40,15 +45,41 @@ body { font-family: 'Geist Sans', sans-serif; }
 }
 
 @keyframes colorCycle {
-    0% { color: #FF6B6B; }
-    12.5% { color: #4ECDC4; }
-    25% { color: #45B7D1; }
-    37.5% { color: #96CEB4; }
-    50% { color: #FFEAA7; }
-    62.5% { color: #DDA0DD; }
-    75% { color: #98D8C8; }
-    87.5% { color: #F7DC6F; }
-    100% { color: #FF6B6B; }
+    0% {
+        color: #FF6B6B;
+    }
+
+    12.5% {
+        color: #4ECDC4;
+    }
+
+    25% {
+        color: #45B7D1;
+    }
+
+    37.5% {
+        color: #96CEB4;
+    }
+
+    50% {
+        color: #FFEAA7;
+    }
+
+    62.5% {
+        color: #DDA0DD;
+    }
+
+    75% {
+        color: #98D8C8;
+    }
+
+    87.5% {
+        color: #F7DC6F;
+    }
+
+    100% {
+        color: #FF6B6B;
+    }
 }
 
 .skill-list {
@@ -69,8 +100,15 @@ body { font-family: 'Geist Sans', sans-serif; }
 }
 
 @keyframes hero-arrow-nudge {
-    0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, 3px, 0); }
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, 3px, 0);
+    }
 }
 
 /* Animate a wrapper — transforms on raw <svg> are unreliable in some browsers */
@@ -89,8 +127,13 @@ body { font-family: 'Geist Sans', sans-serif; }
 }
 
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .marquee-track {
@@ -98,7 +141,9 @@ body { font-family: 'Geist Sans', sans-serif; }
 }
 
 /* Hide scrollbar for cleaner look */
-::-webkit-scrollbar { display: none; }
+::-webkit-scrollbar {
+    display: none;
+}
 
 /* Work highlights — horizontal snap carousel (Apple-style) */
 .work-gallery-scroll {
@@ -106,14 +151,14 @@ body { font-family: 'Geist Sans', sans-serif; }
     gap: 1.25rem;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    scroll-padding-inline: 9vw;
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
+    padding-inline: calc(50vw - (clamp(17rem, 82vw, 68rem) / 2));
 }
 
 .work-gallery-scroll::-webkit-scrollbar {
@@ -123,7 +168,7 @@ body { font-family: 'Geist Sans', sans-serif; }
 @media (min-width: 768px) {
     .work-gallery-scroll {
         gap: 1.5rem;
-        scroll-padding-inline: 5rem;
+        padding-inline: calc(50vw - (min(calc(100vw - 10rem), 68rem) / 2));
     }
 }
 
@@ -178,32 +223,32 @@ body { font-family: 'Geist Sans', sans-serif; }
     display: block;
 }
 
-.payverge-card-media {
+.card-media {
     position: absolute;
     inset: 0;
     pointer-events: none;
 }
 
-.payverge-card-image {
+.card-image {
     position: absolute;
-    top: 12%;
-    right: -100%;
+    top: 20%;
+    left: 32px;
     width: 157%;
     max-width: none;
 }
 
 @media (min-width: 768px) {
-    .payverge-card-image {
-        top: 6%;
-        right: -43%;
+    .card-image {
+        top: 40px;
+        left: 36%;
         width: 100%;
     }
 }
 
 @media (min-width: 1024px) {
-    .payverge-card-image {
-        top: 8%;
-        right: -10%;
+    .card-image {
+        top: 48px;
+        left: 36%;
         width: 73%;
     }
 }
