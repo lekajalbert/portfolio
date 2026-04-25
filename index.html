@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Albert Lekaj - Product Designer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-sans/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Geist', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link rel="stylesheet" href="./style/style.css">
     <link rel="manifest" href="/site.webmanifest">
@@ -100,7 +116,7 @@
                     <h2 class="text-5xl md:text-6xl xl:text-7xl font-normal tracking-tight text-balance leading-[1.06]">
                         <span class="text-white">Selected work</span>
                     </h2>
-                    <p class="mt-4 md:mt-5 text-lg md:text-xl text-zinc-500 font-normal max-w-xl leading-relaxed">
+                    <p class="mt-4 md:mt-5 text-lg md:text-xl text-white/50 font-semibold max-w-xl leading-relaxed">
                         Highlights from recent product work — calm typography, generous space, and craft in the details.
                     </p>
                 </header>
@@ -280,113 +296,193 @@
     </main>
 
     <!-- Skills Section -->
-    <section id="skills" class="relative w-full py-32 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-8 md:px-14 lg:px-14">
+    <section id="skills" class="relative w-full py-32 bg-white">
+        <div class="max-w-[1000px] mx-auto px-8 md:px-14 lg:px-14">
             <!-- Title -->
-            <div class="text-center mb-16">
-                <h2 class="md:text-6xl lg:text-7xl leading-[1.1] text-5xl font-normal text-zinc-950 tracking-tight">
-                    Skills:</h2>
-                <h2 class="md:text-6xl lg:text-7xl leading-[1.1] text-5xl font-normal text-zinc-950 tracking-tight">
-                    <span>Design &amp; Dev</span>
+            <div class="text-center mb-20">
+                <h2 class="md:text-6xl lg:text-7xl leading-[1.1] text-5xl font-normal text-black tracking-tight">
+                    Skills:<br>Design &amp; Dev
                 </h2>
             </div>
 
-            <!-- Skills Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
-                <!-- Core Product Design Skills -->
-                <div class="bg-white rounded-3xl p-9 lg:col-span-2">
-                    <h3 class="text-2xl text-black mb-4">Core Product Design</h3>
-                    <ul class="space-y-1 text-zinc-600 skill-list">
-                        <li>User-Centered Design</li>
-                        <li>Design Thinking</li>
-                        <li>Interaction Design</li>
-                        <li>Information Architecture</li>
-                        <li>UX/UI Design</li>
-                        <li>Human-Computer Interaction</li>
-                        <li>Responsive &amp; Adaptive Design</li>
-                    </ul>
-                </div>
-
-                <!-- Tools & Software -->
-                <div class="bg-white rounded-3xl p-9 lg:col-span-1">
-                    <h3 class="text-2xl text-black mb-4">Tools &amp; Software</h3>
-                    <ul class="space-y-1 text-zinc-600 skill-list">
-                        <li>Figma</li>
-                        <li>Sketch</li>
-                        <li>Framer</li>
-                        <li>Webflow</li>
-                        <li>Miro / FigJam</li>
-                        <li>Adobe Creative Suite</li>
-                    </ul>
-                </div>
-
-                <!-- Data & Evaluation -->
-                <div class="bg-white rounded-3xl p-9 lg:col-span-1">
-                    <h3 class="text-2xl text-black mb-4">Data &amp; Evaluation</h3>
-                    <ul class="space-y-1 text-zinc-600 skill-list">
-                        <li>A/B Testing</li>
-                        <li>Analytics tools</li>
-                        <li>KPI definition</li>
-                        <li>Heuristic Evaluation</li>
-                    </ul>
+            <!-- Skills List -->
+            <div class="flex flex-col mb-16 max-w-4xl mx-auto">
+                <!-- Core Product Design -->
+                <div class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8 border-b border-black/10">
+                    <div>
+                        <h3 class="text-[16px] text-black font-semibold">Core Product Design</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                        <ul class="text-black/50 text-[16px]">
+                            <li>User-Centered Design</li>
+                            <li>Design Thinking</li>
+                            <li>Interaction Design</li>
+                            <li>Information Architecture</li>
+                        </ul>
+                        <ul class="text-black/50 text-[16px]">
+                            <li>UX/UI Design</li>
+                            <li>Human-Computer Interaction</li>
+                            <li>Responsive &amp; Adaptive Design</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- UI & Visual Design -->
-                <div class="bg-white rounded-3xl p-9 lg:col-span-2">
-                    <h3 class="text-2xl text-black mb-4">UI &amp; Visual Design</h3>
-                    <ul class="space-y-1 text-zinc-600 skill-list">
-                        <li>Wireframing</li>
-                        <li>Prototyping</li>
-                        <li>Visual Design</li>
-                        <li>Design Systems</li>
-                        <li>Component Libraries</li>
-                        <li>Branding &amp; UI consistency</li>
-                        <li>Motion Design</li>
-                    </ul>
+                <div class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8 border-b border-black/10">
+                    <div>
+                        <h3 class="text-[16px] text-black font-semibold">UI &amp; Visual Design</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                        <ul class="text-black/50 text-[16px]">
+                            <li>Wireframing</li>
+                            <li>Prototyping</li>
+                            <li>Visual Design</li>
+                            <li>Design Systems</li>
+                        </ul>
+                        <ul class="text-black/50 text-[16px]">
+                            <li>Component Libraries</li>
+                            <li>Branding &amp; UI consistency</li>
+                            <li>Motion Design</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Product & Collaboration -->
-                <div class="bg-white rounded-3xl p-9 lg:col-span-1">
-                    <h3 class="text-2xl text-black mb-4">Product &amp; Collaboration</h3>
-                    <ul class="space-y-1 text-zinc-600 skill-list">
-                        <li>Agile / Scrum</li>
-                        <li>Cross-team collaboration</li>
-                        <li>Design handoff</li>
-                        <li>Stakeholder communication</li>
-                        <li>Product thinking</li>
-                        <li>Roadmapping</li>
-                    </ul>
+                <!-- Tools & Software -->
+                <div class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8 border-b border-black/10">
+                    <div>
+                        <h3 class="text-[16px] text-black font-semibold">Tools &amp; Software</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                        <ul class="text-black/50 text-[16px]">
+                            <li>Figma</li>
+                            <li>Sketch</li>
+                            <li>Framer</li>
+                        </ul>
+                        <ul class="text-black/50 text-[16px]">
+                            <li>Webflow</li>
+                            <li>Miro / FigJam</li>
+                            <li>Adobe Creative Suite</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Product & Collab -->
+                <div class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8 border-b border-black/10">
+                    <div>
+                        <h3 class="text-[16px] text-black font-semibold">Product &amp; Collab</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                        <ul class="text-black/50 text-[16px]">
+                            <li>Agile / Scrum</li>
+                            <li>Cross-team collaboration</li>
+                            <li>Design handoff</li>
+                        </ul>
+                        <ul class="text-black/50 text-[16px]">
+                            <li>Stakeholder communication</li>
+                            <li>Product thinking</li>
+                            <li>Roadmapping</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Coding -->
-                <div class="bg-white rounded-3xl p-9 lg:col-span-1">
-                    <h3 class="text-2xl text-black mb-4">Coding</h3>
-                    <ul class="space-y-1 text-zinc-600 skill-list">
-                        <li>HTML</li>
-                        <li>CSS &amp; SASS</li>
-                        <li>JavaScript</li>
-                        <li>Tailwind</li>
-                    </ul>
+                <div class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8">
+                    <div>
+                        <h3 class="text-[16px] text-black font-semibold">Coding</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2">
+                        <ul class="text-black/50 text-[16px]">
+                            <li>HTML</li>
+                            <li>CSS &amp; SASS</li>
+                        </ul>
+                        <ul class="text-black/50 text-[16px]">
+                            <li>JavaScript</li>
+                            <li>Tailwind</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <!-- Button -->
-            <div class="text-center">
+            <div class="text-center mt-8">
                 <a href="./resume/Albert Lekaj - Resume.pdf" target="_blank"
-                    class="transition-colors hover:bg-zinc-300 text-base font-normal text-black text-center bg-zinc-200 rounded-full pt-3.5 pr-6 pb-3.5 pl-6 inline-block">
+                    class="transition-colors hover:bg-zinc-300 text-[15px] font-normal text-black text-center bg-zinc-200 rounded-full pt-3.5 pr-6 pb-3.5 pl-6 inline-block">
                     View resume
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="relative w-full pt-32 pb-32 bg-black">
+        <div class="max-w-7xl mx-auto px-8 md:px-14">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-10 items-start">
+                <h2
+                    class="md:col-span-2 lg:col-span-1 text-5xl md:text-7xl font-normal text-white tracking-tight leading-[1.06]">
+                    About Me
+                </h2>
+
+                <p class="leading-snug text-[16px] text-white/50 font-semibold">
+                    I am a Product Designer with over 9 years of experience creating scalable, user-centered digital
+                    products. I specialize in UX/UI, design systems, and motion design for large-scale platforms.
+                </p>
+
+                <p class="leading-snug text-[16px] text-white/50 font-semibold">
+                    By combining modern design tools with front-end frameworks, I bridge the gap between design and
+                    engineering to build intuitive, polished experiences.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 items-stretch">
+
+                <div class="hidden lg:block"></div>
+
+                <div class="rounded-3xl overflow-hidden bg-[#0F0F0F] min-h-[420px]">
+                    <img src="./images/portrait.png" alt="Albert Lekaj Portrait"
+                        class="w-full h-full object-cover object-top">
+                </div>
+
+                <div class="rounded-3xl bg-[#0F0F0F] p-8 md:p-10 flex flex-col justify-between">
+                    <div>
+                        <p class="text-white font-semibold text-[16px] mb-4">Bio</p>
+                        <p class="text-white/80 text-[16px] leading-snug">
+                            Outside of work I’m basically a collection of hobbies held together by coffee.
+                            I hike for the views and take too many landscape photos, and do the same with
+                            urban scenes on city walks. I kickbox twice a week, cheaper than therapy.
+                            I cook elaborate meals but skip the food photos and just eat them.
+                            On weekends I’m deep in a film or a playlist, sometimes both.
+                        </p>
+                    </div>
+
+                    <div class="mt-10">
+                        <p class="text-white font-semibold text-[16px] mb-4">Hobbies</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-2 py-[2px] bg-[#2E2E2E] rounded-full border border-white/10 text-white text-[14px]">Photography</span>
+                            <span
+                                class="px-2 py-[2px] bg-[#2E2E2E] rounded-full border border-white/10 text-white text-[14px]">Movies</span>
+                            <span
+                                class="px-2 py-[2px] bg-[#2E2E2E] rounded-full border border-white/10 text-white text-[14px]">Music</span>
+                            <span
+                                class="px-2 py-[2px] bg-[#2E2E2E] rounded-full border border-white/10 text-white text-[14px]">Hiking</span>
+                            <span
+                                class="px-2 py-[2px] bg-[#2E2E2E] rounded-full border border-white/10 text-white text-[14px]">Kickboxing</span>
+                            <span
+                                class="px-2 py-[2px] bg-[#2E2E2E] rounded-full border border-white/10 text-white text-[14px]">Cooking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="text-white bg-zinc-950 pt-24 pb-24">
+    <footer class="text-white bg-black pt-32 pb-8">
         <div class="mx-auto px-8 md:px-14 lg:px-14">
-            <div
-                class="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 border-b border-zinc-800 pb-20">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 border-b border-zinc-200/10 pb-20">
                 <div class="max-w-4xl">
-                    <p class="text-sm font-normal mb-8 text-balance text-neutral-500">GET IN TOUCH</p>
+                    <p class="text-sm font-semibold mb-8 text-balance text-neutral-500">Get in touch</p>
                     <h2 class="text-6xl md:text-8xl font-normal tracking-tight mb-8 text-balance">Let's <span
                             class="color-changing">build</span> together.</h2>
                     <a href="mailto:albertlekaj6@gmail.com"
@@ -400,7 +496,7 @@
                 </div>
 
                 <div class="flex flex-col gap-4 text-zinc-400 font-normal">
-                    <p class="text-sm text-zinc-600 uppercase tracking-widest mb-2">Socials</p>
+                    <p class="text-sm font-semibold text-neutral-500 mb-2">Socials</p>
                     <a href="https://www.linkedin.com/in/albertlekaj/"
                         class="hover:text-white transition-colors flex items-center justify-between w-32 text-base"
                         target="_blank">LinkedIn
