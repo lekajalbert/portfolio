@@ -20,17 +20,29 @@ function getNavThemeProbeY() {
 function isDarkNavThemeSection() {
     const marqueeSection = document.querySelector('.marquee-track')?.parentElement;
     const workSection = document.getElementById('work');
-
-    if (!marqueeSection || !workSection) {
-        return false;
-    }
+    const aboutSection = document.getElementById('about');
+    const footerSection = document.querySelector('footer');
 
     const probeY = getNavThemeProbeY();
-    const marqueeRect = marqueeSection.getBoundingClientRect();
-    const workRect = workSection.getBoundingClientRect();
 
-    return (marqueeRect.top <= probeY && marqueeRect.bottom > probeY)
-        || (workRect.top <= probeY && workRect.bottom > probeY);
+    if (marqueeSection) {
+        const rect = marqueeSection.getBoundingClientRect();
+        if (rect.top <= probeY && rect.bottom > probeY) return true;
+    }
+    if (workSection) {
+        const rect = workSection.getBoundingClientRect();
+        if (rect.top <= probeY && rect.bottom > probeY) return true;
+    }
+    if (aboutSection) {
+        const rect = aboutSection.getBoundingClientRect();
+        if (rect.top <= probeY && rect.bottom > probeY) return true;
+    }
+    if (footerSection) {
+        const rect = footerSection.getBoundingClientRect();
+        if (rect.top <= probeY && rect.bottom > probeY) return true;
+    }
+
+    return false;
 }
 
 function syncMobileMenuTheme() {
@@ -133,7 +145,7 @@ function syncNavThemeContent(navContainer, isDark) {
     }
 }
 
-(function() {
+(function () {
     const navContainer = document.getElementById('nav-container');
     const mainNav = document.getElementById('main-nav');
     if (!navContainer || !mainNav) return;
@@ -533,12 +545,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Try to play immediately
     const playPromise = heroVideo.play();
-    
+
     if (playPromise !== undefined) {
         playPromise.catch(() => {
             // Autoplay failed, try again on user interaction
             const playOnInteraction = () => {
-                heroVideo.play().catch(() => {});
+                heroVideo.play().catch(() => { });
                 document.removeEventListener('click', playOnInteraction);
                 document.removeEventListener('touchstart', playOnInteraction);
             };
