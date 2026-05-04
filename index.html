@@ -43,6 +43,7 @@
             <div class="flex h-16 items-center justify-between">
                 <a id="albert" href="#" class="text-xl font-normal tracking-tight">Albert.</a>
                 <div class="hidden md:flex gap-8 text-base font-normal text-zinc-500 items-center">
+                    <a href="#" class="hover:text-black transition-colors">Home</a>
                     <a href="#work" class="hover:text-black transition-colors">Work</a>
                     <a href="#skills" class="hover:text-black transition-colors">Skills</a>
                     <a href="#about" class="hover:text-black transition-colors">About</a>
@@ -50,15 +51,17 @@
                         class="inline-flex items-center gap-3 transition-colors text-sm font-normal text-white rounded-full py-2 px-4">Work
                         with me</a>
                 </div>
-                <button id="mobile-menu-toggle" class="md:hidden text-black" type="button" aria-expanded="false"
-                    aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+                <button id="mobile-menu-toggle" class="md:hidden text-black flex items-center justify-center"
+                    type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
                     <iconify-icon icon="solar:hamburger-menu-linear" width="24" height="24"></iconify-icon>
                 </button>
             </div>
             <div id="mobile-menu"
                 class="md:hidden w-full border-t max-h-0 opacity-0 overflow-hidden pointer-events-none transition-all duration-300 ease-in-out">
+                <a href="#"
+                    class="mobile-nav-link text-xl block pb-3 pt-5 text-base text-zinc-700 hover:text-black transition-colors text-left">Home</a>
                 <a href="#work"
-                    class="mobile-nav-link text-xl block pb-3 pt-5 text-base text-zinc-700 hover:text-black transition-colors text-left">Work</a>
+                    class="mobile-nav-link text-xl block py-3 text-base text-zinc-700 hover:text-black transition-colors text-left">Work</a>
                 <a href="#skills"
                     class="mobile-nav-link text-xl block py-3 text-base text-zinc-700 hover:text-black transition-colors text-left">Skills</a>
                 <a href="#about"
@@ -116,7 +119,7 @@
                     <h2 class="text-5xl md:text-6xl xl:text-7xl font-normal tracking-tight text-balance leading-[1.06]">
                         <span class="text-white">Selected work</span>
                     </h2>
-                    <p class="mt-4 md:mt-5 text-lg md:text-xl text-white/50 font-semibold max-w-xl leading-relaxed">
+                    <p class="mt-4 md:mt-5 text-lg md:text-xl text-white/50 max-w-xl leading-relaxed">
                         Highlights from recent product work — calm typography, generous space, and craft in the details.
                     </p>
                 </header>
@@ -128,12 +131,12 @@
                     role="list" tabindex="0" aria-label="Work project slides">
                     <li class="work-gallery-slide" id="work-slide-0" role="tabpanel" aria-labelledby="work-tab-0"
                         aria-roledescription="slide" aria-label="1 of 4">
-                        <a href="#"
+                        <a href="payverge.html"
                             class="group block hover:scale-[1.01] transition-transform duration-300 h-full outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#f5f5f7] rounded-[1.5rem]">
                             <div
                                 class="relative overflow-hidden rounded-[1.5rem] aspect-[3/4] md:aspect-[4/3] lg:aspect-[16/9] bg-[#bbc6df]">
                                 <div class="card-media" aria-hidden="true">
-                                    <img src="./images/work/payverge/payverge-card.png" alt="" class="card-image">
+                                    <img src="./images/work/payverge/payverge-card.svg" alt="" class="card-image">
                                 </div>
                                 <p id="labels"
                                     class="hidden md:block absolute inset-x-0 top-0 p-6 text-xs md:text-sm font-normal text-[#fff] md:p-10 lg:p-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -151,7 +154,7 @@
                     </li>
                     <li class="work-gallery-slide" id="work-slide-3" role="tabpanel" aria-labelledby="work-tab-3"
                         aria-roledescription="slide" aria-label="4 of 4">
-                        <a href="#"
+                        <a href="arcadia.html"
                             class="group block hover:scale-[1.01] transition-transform duration-300 h-full outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#f5f5f7] rounded-[1.5rem]">
                             <div
                                 class="relative overflow-hidden rounded-[1.5rem] aspect-[3/4] md:aspect-[4/3] lg:aspect-[16/9] bg-[#D4CB00]">
@@ -174,7 +177,7 @@
                     </li>
                     <li class="work-gallery-slide" id="work-slide-2" role="tabpanel" aria-labelledby="work-tab-2"
                         aria-roledescription="slide" aria-label="3 of 4">
-                        <a href="#"
+                        <a href="new.html"
                             class="group block hover:scale-[1.01] transition-transform duration-300 h-full outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#f5f5f7] rounded-[1.5rem]">
                             <div
                                 class="relative overflow-hidden rounded-[1.5rem] aspect-[3/4] md:aspect-[4/3] lg:aspect-[16/9] bg-[#fcadb7]">
@@ -197,7 +200,7 @@
                     </li>
                     <li class="work-gallery-slide" id="work-slide-1" role="tabpanel" aria-labelledby="work-tab-1"
                         aria-roledescription="slide" aria-label="2 of 4">
-                        <a href="#"
+                        <a href="udrop.html"
                             class="group block hover:scale-[1.01] transition-transform duration-300 h-full outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-4 focus-visible:ring-offset-[#f5f5f7] rounded-[1.5rem]">
                             <div
                                 class="relative overflow-hidden rounded-[1.5rem] aspect-[3/4] md:aspect-[4/3] lg:aspect-[16/9] bg-[#95ce4e]">
@@ -311,7 +314,7 @@
                 <div
                     class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8 border-b border-black/10 reveal-on-scroll">
                     <div>
-                        <h3 class="text-[16px] text-black font-semibold">Core Product Design</h3>
+                        <h3 class="text-[16px] text-black">Core Product Design</h3>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2">
                         <ul class="text-black/50 text-[16px]">
@@ -332,7 +335,7 @@
                 <div
                     class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8 border-b border-black/10 reveal-on-scroll">
                     <div>
-                        <h3 class="text-[16px] text-black font-semibold">UI &amp; Visual Design</h3>
+                        <h3 class="text-[16px] text-black">UI &amp; Visual Design</h3>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2">
                         <ul class="text-black/50 text-[16px]">
@@ -353,7 +356,7 @@
                 <div
                     class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8 border-b border-black/10 reveal-on-scroll">
                     <div>
-                        <h3 class="text-[16px] text-black font-semibold">Tools &amp; Software</h3>
+                        <h3 class="text-[16px] text-black">Tools &amp; Software</h3>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2">
                         <ul class="text-black/50 text-[16px]">
@@ -373,7 +376,7 @@
                 <div
                     class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8 border-b border-black/10 reveal-on-scroll">
                     <div>
-                        <h3 class="text-[16px] text-black font-semibold">Product &amp; Collab</h3>
+                        <h3 class="text-[16px] text-black">Product &amp; Collab</h3>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2">
                         <ul class="text-black/50 text-[16px]">
@@ -392,7 +395,7 @@
                 <!-- Coding -->
                 <div class="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-4 md:gap-8 py-8 reveal-on-scroll">
                     <div>
-                        <h3 class="text-[16px] text-black font-semibold">Coding</h3>
+                        <h3 class="text-[16px] text-black">Coding</h3>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2">
                         <ul class="text-black/50 text-[16px]">
@@ -428,12 +431,12 @@
                     About Me
                 </h2>
 
-                <p class="leading-snug text-[16px] text-white/50 font-semibold">
+                <p class="leading-snug text-[16px] text-white/50">
                     I am a Product Designer with over 9 years of experience creating scalable, user-centered digital
                     products. I specialize in UX/UI, design systems, and motion design for large-scale platforms.
                 </p>
 
-                <p class="leading-snug text-[16px] text-white/50 font-semibold">
+                <p class="leading-snug text-[16px] text-white/50">
                     By combining modern design tools with front-end frameworks, I bridge the gap between design and
                     engineering to build intuitive, polished experiences.
                 </p>
@@ -443,15 +446,15 @@
 
                 <div class="hidden lg:block"></div>
 
-                <div class="flex rounded-3xl overflow-hidden bg-[#0F0F0F] min-h-[420px] reveal-on-scroll">
+                <div class="flex rounded-3xl overflow-hidden bg-[#1c1c1c] min-h-[420px] reveal-on-scroll">
                     <img src="./images/portrait.png" alt="Albert Lekaj Portrait"
                         class="w-full h-auto object-cover object-top">
                 </div>
 
                 <div
-                    class="rounded-3xl bg-[#0F0F0F] p-8 md:p-10 flex flex-col justify-between reveal-on-scroll reveal-delay-100">
+                    class="rounded-3xl bg-[#1c1c1c] p-8 md:p-10 flex flex-col justify-between reveal-on-scroll reveal-delay-100">
                     <div>
-                        <p class="text-white font-semibold text-[16px] mb-4">Bio</p>
+                        <p class="text-white text-[16px] mb-4">Bio</p>
                         <p class="text-white/80 text-[16px] leading-snug">
                             Outside of work I’m basically a collection of hobbies held together by coffee.
                             I hike for the views and take too many landscape photos, and do the same with
@@ -462,7 +465,7 @@
                     </div>
 
                     <div class="mt-10">
-                        <p class="text-white font-semibold text-[16px] mb-4">Hobbies</p>
+                        <p class="text-white text-[16px] mb-4">Hobbies</p>
                         <div class="flex flex-wrap gap-2">
                             <span
                                 class="px-2 py-[2px] bg-[#2E2E2E] rounded-full border border-white/10 text-white text-[14px]">Photography</span>
@@ -488,7 +491,7 @@
         <div class="mx-auto px-8 md:px-14 lg:px-14">
             <div class="flex flex-col md:flex-row justify-between items-start gap-12 border-b border-zinc-200/10 pb-20">
                 <div class="max-w-4xl reveal-on-scroll">
-                    <p class="text-sm font-semibold mb-8 text-balance text-neutral-500">Get in touch</p>
+                    <p class="text-sm mb-8 text-balance text-neutral-500">Get in touch</p>
                     <h2 class="text-6xl md:text-8xl font-normal tracking-tight mb-8 text-balance">Let's <span
                             class="color-changing">build</span> together.</h2>
                     <a href="mailto:albertlekaj6@gmail.com"
@@ -502,7 +505,7 @@
                 </div>
 
                 <div class="flex flex-col gap-4 text-zinc-400 font-normal reveal-on-scroll reveal-delay-100">
-                    <p class="text-sm font-semibold text-neutral-500 mb-2">Socials</p>
+                    <p class="text-sm text-neutral-500 mb-2">Socials</p>
                     <a href="https://www.linkedin.com/in/albertlekaj/"
                         class="hover:text-white transition-colors flex items-center justify-between w-32 text-base"
                         target="_blank">LinkedIn

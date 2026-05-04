@@ -574,11 +574,172 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, {
         root: null,
-        rootMargin: '0px 0px -10% 0px',
-        threshold: 0.05
+        rootMargin: '0px',
+        threshold: 0.1
     });
 
     revealElements.forEach(el => {
         revealObserver.observe(el);
+    });
+});
+
+// KPI Count-up Animation
+document.addEventListener('DOMContentLoaded', () => {
+    const kpiNumbers = document.querySelectorAll('.kpi-number');
+    if (kpiNumbers.length === 0) return;
+
+    const animateKPI = (el) => {
+        if (el.getAttribute('data-animated') === 'true') return;
+        el.setAttribute('data-animated', 'true');
+
+        const target = parseInt(el.getAttribute('data-target'));
+        if (isNaN(target)) return;
+
+        const duration = 2000;
+        let startTime = null;
+
+        const update = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // easeOutExpo
+            const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            
+            const currentVal = Math.floor(ease * target);
+            el.innerHTML = currentVal + '%';
+            
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                el.innerHTML = target + '%';
+            }
+        };
+
+        requestAnimationFrame(update);
+    };
+
+    const kpiObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // Trigger when entering viewport (even slightly)
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+                animateKPI(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '50px', // Trigger slightly before entering viewport
+        threshold: 0 // Most lenient threshold
+    });
+
+    kpiNumbers.forEach(num => {
+        kpiObserver.observe(num);
+        
+        // Immediate check for elements already in view
+        const rect = num.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            animateKPI(num);
+        }
+    });
+});
+
+// Auto-scroll infinite loop and grab-to-scroll for project image sliders
+document.addEventListener('DOMContentLoaded', () => {
+    const sliders = document.querySelectorAll('.slider-gallery');
+    
+    sliders.forEach(slider => {
+        // Clone children for seamless infinite scroll
+        const children = Array.from(slider.children);
+        children.forEach(child => {
+            const clone = child.cloneNode(true);
+            slider.appendChild(clone);
+        });
+
+        let isDown = false;
+        let isSnapping = false;
+        let snapTimer = null;
+        let startX;
+        let scrollLeft;
+        let exactScrollLeft = 0;
+        let scrollSpeed = 0.6; // Pixels per frame
+
+        setTimeout(() => { exactScrollLeft = slider.scrollLeft; }, 100);
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.scrollSnapType = 'none';
+            slider.classList.add('active:cursor-grabbing');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            slider.scrollLeft = scrollLeft - walk;
+            exactScrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('touchstart', () => {
+            isDown = true;
+            isSnapping = true;
+            clearTimeout(snapTimer);
+            slider.style.scrollSnapType = 'x mandatory';
+        }, { passive: true });
+
+        slider.addEventListener('touchend', () => {
+            isDown = false;
+            clearTimeout(snapTimer);
+            snapTimer = setTimeout(() => {
+                isSnapping = false;
+                slider.style.scrollSnapType = 'none';
+                exactScrollLeft = slider.scrollLeft;
+            }, 800);
+        });
+
+        slider.addEventListener('touchcancel', () => {
+            isDown = false;
+            clearTimeout(snapTimer);
+            snapTimer = setTimeout(() => {
+                isSnapping = false;
+                slider.style.scrollSnapType = 'none';
+                exactScrollLeft = slider.scrollLeft;
+            }, 800);
+        });
+
+        slider.addEventListener('scroll', () => {
+             if (isDown || isSnapping) {
+                 exactScrollLeft = slider.scrollLeft;
+             }
+        }, { passive: true });
+
+        // Continuous auto-scroll
+        function autoScroll() {
+            if (!isDown && !isSnapping) {
+                exactScrollLeft += scrollSpeed;
+                slider.scrollLeft = exactScrollLeft;
+                
+                // Seamless loop when reaching exactly half the scrollWidth
+                if (slider.scrollLeft >= slider.scrollWidth / 2) {
+                    exactScrollLeft -= slider.scrollWidth / 2;
+                    slider.scrollLeft = exactScrollLeft;
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+        
+        // Start scroll
+        requestAnimationFrame(autoScroll);
     });
 });

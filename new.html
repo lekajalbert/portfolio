@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New - Booking Software</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Geist', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="/images/favicons/favicon.png">
+    <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+    <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#111111">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body class="antialiased selection:bg-zinc-900 selection:text-white overflow-x-hidden text-black bg-[#ffffff]">
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed z-50 transition-colors duration-300 top-0 right-0 left-0">
+        <div class="transition-all duration-500 ease-in-out transform w-full mr-auto ml-auto pr-6 pl-6 overflow-hidden"
+            id="nav-container">
+            <div class="flex h-16 items-center justify-between">
+                <a id="albert" href="index.html" class="text-xl font-normal tracking-tight">Albert.</a>
+                <div class="hidden md:flex gap-8 text-base font-normal text-zinc-500 items-center">
+                    <a href="index.html" class="hover:text-black transition-colors">Home</a>
+                    <a href="index.html#work" class="hover:text-black transition-colors">Work</a>
+                    <a href="index.html#skills" class="hover:text-black transition-colors">Skills</a>
+                    <a href="index.html#about" class="hover:text-black transition-colors">About</a>
+                    <a href="mailto:albertlekaj6@gmail.com"
+                        class="inline-flex items-center gap-3 transition-colors text-sm font-normal text-white rounded-full py-2 px-4">Work
+                        with me</a>
+                </div>
+                <button id="mobile-menu-toggle" class="md:hidden text-black flex items-center justify-center"
+                    type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+                    <iconify-icon icon="solar:hamburger-menu-linear" width="24" height="24"></iconify-icon>
+                </button>
+            </div>
+            <div id="mobile-menu"
+                class="md:hidden w-full border-t max-h-0 opacity-0 overflow-hidden pointer-events-none transition-all duration-300 ease-in-out">
+                <a href="index.html"
+                    class="mobile-nav-link text-xl block pb-3 pt-5 text-base text-zinc-700 hover:text-black transition-colors text-left">Home</a>
+                <a href="index.html#work"
+                    class="mobile-nav-link text-xl block py-3 text-base text-zinc-700 hover:text-black transition-colors text-left">Work</a>
+                <a href="index.html#skills"
+                    class="mobile-nav-link text-xl block py-3 text-base text-zinc-700 hover:text-black transition-colors text-left">Skills</a>
+                <a href="index.html#about"
+                    class="mobile-nav-link text-xl block py-3 text-base text-zinc-700 hover:text-black transition-colors text-left">About</a>
+                <a href="mailto:albertlekaj6@gmail.com"
+                    class="inline-flex items-center gap-3 transition-colors text-sm font-normal text-white justify-center rounded-full py-2 px-4 text-center w-full mt-2 mb-7">Work
+                    with me</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="reveal-on-scroll pt-[150px]">
+            <p class="text-[16px] text-center text-black/50">Booking Software</p>
+            <h1
+                class="mt-[12px] text-6xl md:text-7xl lg:text-8xl text-center text-black mb-[80px] leading-none tracking-tight">
+                New</h1>
+
+            <div class="w-full px-0 md:px-[30px] min-[1920px]:px-0 mx-auto max-w-[1920px]">
+                <div
+                    class="w-full max-w-[1860px] max-h-[1046px] mx-auto bg-[#fcadb7] rounded-none md:rounded-[16px] aspect-[4/3] md:aspect-[16/9] overflow-hidden flex justify-center items-start px-6 md:px-12 xl:px-20">
+                    <img src="./images/work/new/new-card.png" alt="New"
+                        class="w-full max-w-[1440px] mx-auto block rounded-[8px] md:rounded-[12px] xl:rounded-[16px] aspect-[4/3] mt-[48px] md:mt-[80px] xl:mt-[176px] object-cover object-top">
+                </div>
+            </div>
+        </section>
+
+        <!-- Description Section -->
+        <section
+            class="reveal-on-scroll py-[96px] max-w-[1440px] mx-auto px-[30px] flex flex-col lg:flex-row justify-between gap-12">
+            <div class="lg:max-w-[800px]">
+                <p class="text-[24px] text-black/50 text-left leading-normal">
+                    <span class="text-black">NEW</span> is a cutting-edge platform designed for the beauty and
+                    wellness industry,
+                    connecting millions of customers and businesses around the world. It offers
+                    consumers a seamless way to discover, schedule, and pay for beauty and wellness
+                    services from local providers.
+                </p>
+            </div>
+            <div class="text-[16px] flex flex-col gap-[32px] min-w-[250px]">
+                <div>
+                    <p class="text-black/50">Industries</p>
+                    <p class="text-black">Booking, Wellness, Beauty</p>
+                </div>
+                <div>
+                    <p class="text-black/50">Scope</p>
+                    <p class="text-black">UI/UX, Prototyping, Wireframing, Design system</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Side-to-Side Image Section -->
+        <section class="reveal-on-scroll max-w-[1440px] mx-auto px-[30px] pb-[96px]">
+            <div
+                class="w-full max-h-[810px] aspect-[16/9] bg-[#fcadb7]/20 rounded-[16px] flex justify-center items-end gap-[16px] md:gap-[32px] overflow-hidden">
+                <img src="./images/work/new/new-card.png" alt="Placeholder"
+                    class="w-[calc(50%-8px)] md:w-[calc(50%-16px)] rounded-tr-[4px] md:rounded-none md:rounded-tr-[16px] aspect-square object-cover object-top">
+                <img src="./images/work/new/new-card.png" alt="Placeholder"
+                    class="w-[calc(50%-8px)] md:w-[calc(50%-16px)] rounded-tl-[4px] md:rounded-none md:rounded-tl-[16px] aspect-square object-cover object-top">
+            </div>
+        </section>
+
+        <!-- Challenge Section -->
+        <section
+            class="reveal-on-scroll max-w-[1440px] mx-auto px-[30px] pb-[96px] flex flex-col lg:flex-row justify-between gap-12 items-start">
+            <div class="lg:w-1/4">
+                <p class="text-[24px] text-black/50">Challenge</p>
+            </div>
+            <div class="lg:w-3/4 lg:max-w-[960px]">
+                <p class="text-[32px] leading-[40px] md:text-[40px] md:leading-[52px] text-black tracking-tight">
+                    Design a reservation platform for wellness services that feels calm and inviting while handling
+                    multiple booking flows. The challenge was to organize schedules, services, and availability in a
+                    way that is easy to understand without overwhelming the user.
+                </p>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section
+            class="reveal-on-scroll max-w-[1440px] mx-auto px-[30px] pb-[96px] flex flex-col lg:flex-row justify-between gap-12 items-start">
+            <div class="lg:w-1/4">
+                <p class="text-[24px] text-black/50">Solution</p>
+            </div>
+            <div class="lg:w-3/4 lg:max-w-[960px] flex flex-col md:flex-row gap-8 lg:gap-24">
+                <p class="text-[16px] text-black flex-1">
+                    I designed a clean and calming interface that guides users through the booking process with clarity.
+                    The layout uses soft visuals, clear hierarchy, and simple interactions to make scheduling feel
+                    effortless.
+                </p>
+                <p class="text-[16px] text-black flex-1">
+                    Also, the structured sections help users explore services, check availability, and make reservations
+                    with minimal effort.
+                </p>
+            </div>
+        </section>
+
+        <!-- Two Images Section -->
+        <section
+            class="reveal-on-scroll max-w-[1440px] mx-auto px-[30px] pb-[96px] flex flex-col md:flex-row justify-between gap-8">
+            <img src="./images/work/new/new-card.png" alt="Placeholder"
+                class="w-full md:w-[calc(50%-16px)] aspect-square rounded-[16px] object-cover bg-[#F1F4F9]">
+            <img src="./images/work/new/new-card.png" alt="Placeholder"
+                class="w-full md:w-[calc(50%-16px)] aspect-square rounded-[16px] object-cover bg-[#F1F4F9]">
+        </section>
+
+        <!-- Competition Section -->
+        <section
+            class="reveal-on-scroll max-w-[1440px] mx-auto px-[30px] pb-[96px] flex flex-col lg:flex-row justify-between gap-12 items-start">
+            <div class="lg:w-1/4">
+                <p class="text-[24px] text-black/50">Competition</p>
+            </div>
+            <div class="lg:w-3/4 lg:max-w-[960px]">
+                <p class="text-[16px] text-black">
+                    Many booking platforms are overly functional and lack emotional appeal, especially in the wellness
+                    space. This concept stands out by combining usability with a soothing visual language that reflects
+                    the nature of wellness services while maintaining a clear and efficient flow.
+                </p>
+            </div>
+        </section>
+
+        <!-- Images Slider Gallery Section -->
+        <section class="reveal-on-scroll pb-[96px] w-full overflow-hidden">
+            <div
+                class="flex gap-[24px] overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing px-[30px] slider-gallery">
+                <!-- 6 placeholder images -->
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=700&h=394&q=80"
+                    alt="Gallery Image"
+                    class="w-[85vw] md:w-[700px] aspect-[16/9] shrink-0 object-cover rounded-[16px] bg-[#F1F4F9] pointer-events-none snap-center">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&h=394&q=80"
+                    alt="Gallery Image"
+                    class="w-[85vw] md:w-[700px] aspect-[16/9] shrink-0 object-cover rounded-[16px] bg-[#F1F4F9] pointer-events-none snap-center">
+                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=700&h=394&q=80"
+                    alt="Gallery Image"
+                    class="w-[85vw] md:w-[700px] aspect-[16/9] shrink-0 object-cover rounded-[16px] bg-[#F1F4F9] pointer-events-none snap-center">
+                <img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?auto=format&fit=crop&w=700&h=394&q=80"
+                    alt="Gallery Image"
+                    class="w-[85vw] md:w-[700px] aspect-[16/9] shrink-0 object-cover rounded-[16px] bg-[#F1F4F9] pointer-events-none snap-center">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&h=394&q=80"
+                    alt="Gallery Image"
+                    class="w-[85vw] md:w-[700px] aspect-[16/9] shrink-0 object-cover rounded-[16px] bg-[#F1F4F9] pointer-events-none snap-center">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=700&h=394&q=80"
+                    alt="Gallery Image"
+                    class="w-[85vw] md:w-[700px] aspect-[16/9] shrink-0 object-cover rounded-[16px] bg-[#F1F4F9] pointer-events-none snap-center">
+            </div>
+        </section>
+        <!-- Outcomes Section -->
+        <section
+            class="reveal-on-scroll max-w-[1440px] mx-auto px-[30px] pb-[96px] flex flex-col lg:flex-row justify-between gap-12 items-start">
+            <div class="lg:w-1/4">
+                <p class="text-[24px] text-black/50">Outcomes</p>
+            </div>
+            <div
+                class="lg:w-3/4 lg:max-w-[960px] flex flex-col lg:flex-row gap-12 lg:gap-24 items-start lg:items-center">
+                <div class="flex-1 lg:max-w-[400px]">
+                    <p class="text-[16px] text-black">
+                        The result is a user friendly reservation experience that simplifies booking while creating a
+                        sense of calm and trust. It improves navigation, reduces friction in the process, and aligns the
+                        digital experience with the expectations of wellness users.
+                    </p>
+                </div>
+                <div class="flex gap-12 lg:gap-16 items-center">
+                    <div class="flex flex-col items-center justify-center text-center">
+                        <p class="text-[72px] text-black leading-none tracking-tight mb-2 kpi-number" data-target="30">
+                            0%</p>
+                        <p class="text-[20px] text-black/50 whitespace-nowrap">Scope reduction</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-center text-center">
+                        <p class="text-[72px] text-black leading-none tracking-tight mb-2 kpi-number" data-target="54">
+                            0%</p>
+                        <p class="text-[20px] text-black/50 whitespace-nowrap">Faster handoff</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-white bg-black pt-32 pb-8">
+        <div class="mx-auto px-8 md:px-14 lg:px-14">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 border-b border-zinc-200/10 pb-20">
+                <div class="max-w-4xl reveal-on-scroll">
+                    <p class="text-sm font-semibold mb-8 text-balance text-neutral-500">Get in touch</p>
+                    <h2 class="text-6xl md:text-8xl font-normal tracking-tight mb-8 text-balance">Let's <span
+                            class="color-changing">build</span> together.</h2>
+                    <a href="mailto:albertlekaj6@gmail.com"
+                        class="text-2xl text-zinc-400 hover:text-white transition-colors inline-flex items-center gap-3 group">
+                        Send me an email
+                        <span
+                            class="w-8 h-8 rounded-full border border-zinc-700 flex items-center justify-center group-hover:border-zinc-400 transition-colors">
+                            <iconify-icon icon="solar:arrow-right-up-linear" width="16" height="16"></iconify-icon>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="flex flex-col gap-4 text-zinc-400 font-normal reveal-on-scroll reveal-delay-100">
+                    <p class="text-sm font-semibold text-neutral-500 mb-2">Socials</p>
+                    <a href="https://www.linkedin.com/in/albertlekaj/"
+                        class="hover:text-white transition-colors flex items-center justify-between w-32 text-base"
+                        target="_blank">LinkedIn
+                        <iconify-icon icon="solar:arrow-right-up-linear" width="16" height="16"></iconify-icon>
+                    </a>
+                    <a href="https://dribbble.com/albertlekaj"
+                        class="hover:text-white transition-colors flex items-center justify-between w-32 text-base"
+                        target="_blank">Dribbble
+                        <iconify-icon icon="solar:arrow-right-up-linear" width="16" height="16"></iconify-icon>
+                    </a>
+                    <a href="https://www.behance.net/albert_lekaj"
+                        class="hover:text-white transition-colors flex items-center justify-between w-32 text-base"
+                        target="_blank">Behance
+                        <iconify-icon icon="solar:arrow-right-up-linear" width="16" height="16"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-row justify-between items-center gap-4 text-base text-zinc-500 font-normal">
+                <p>Albert Lekaj — Product Designer</p>
+                <p>© 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
