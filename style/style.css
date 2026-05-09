@@ -231,10 +231,11 @@ body {
 
 .card-image {
     position: absolute;
-    top: 20%;
+    top: 24%;
     left: 32px;
     width: 157%;
     max-width: none;
+    border-top-left-radius: 8px;
 }
 
 @media (min-width: 768px) {
@@ -242,6 +243,7 @@ body {
         top: 40px;
         left: 36%;
         width: 100%;
+        border-top-left-radius: 16px;
     }
 }
 
@@ -250,6 +252,7 @@ body {
         top: 48px;
         left: 36%;
         width: 73%;
+        border-top-left-radius: 16px;
     }
 }
 
