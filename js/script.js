@@ -20,6 +20,7 @@ function getNavThemeProbeY() {
 function isDarkNavThemeSection() {
     const marqueeSection = document.querySelector('.marquee-track')?.parentElement;
     const workSection = document.getElementById('work');
+    const aiSection = document.getElementById('ai-capabilities');
     const aboutSection = document.getElementById('about');
     const footerSection = document.querySelector('footer');
 
@@ -31,6 +32,10 @@ function isDarkNavThemeSection() {
     }
     if (workSection) {
         const rect = workSection.getBoundingClientRect();
+        if (rect.top <= probeY && rect.bottom > probeY) return true;
+    }
+    if (aiSection) {
+        const rect = aiSection.getBoundingClientRect();
         if (rect.top <= probeY && rect.bottom > probeY) return true;
     }
     if (aboutSection) {
@@ -435,6 +440,8 @@ document.addEventListener('DOMContentLoaded', () => {
             clearAutoplay();
         });
 
+
+
         workScroller.addEventListener('scroll', () => {
             if (scrollTicking) return;
             scrollTicking = true;
@@ -669,7 +676,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
             slider.style.scrollSnapType = 'none';
-            slider.classList.add('active:cursor-grabbing');
+            slider.style.scrollSnapType = 'none';
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
         });
