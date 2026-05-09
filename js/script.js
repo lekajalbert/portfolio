@@ -743,3 +743,48 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(autoScroll);
     });
 });
+// Work Widget Interaction
+document.addEventListener('DOMContentLoaded', () => {
+    const trigger = document.getElementById('work-trigger');
+    const menu = document.getElementById('work-menu');
+    const icon = document.getElementById('trigger-icon');
+
+    if (!trigger || !menu || !icon) return;
+
+    const toggleMenu = (show) => {
+        if (show) {
+            menu.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                menu.classList.remove('scale-95', 'opacity-0');
+                menu.classList.add('scale-100', 'opacity-100');
+                icon.style.transform = 'rotate(180deg)';
+            });
+        } else {
+            menu.classList.remove('scale-100', 'opacity-100');
+            menu.classList.add('scale-95', 'opacity-0');
+            icon.style.transform = 'rotate(0deg)';
+            setTimeout(() => {
+                menu.classList.add('hidden');
+            }, 300);
+        }
+    };
+
+    trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = menu.classList.contains('hidden');
+        toggleMenu(isHidden);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menu.classList.contains('hidden') && !menu.contains(e.target) && !trigger.contains(e.target)) {
+            toggleMenu(false);
+        }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+            toggleMenu(false);
+        }
+    });
+});

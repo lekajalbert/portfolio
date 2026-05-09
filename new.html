@@ -315,6 +315,34 @@
         </div>
     </footer>
 
+    <!-- Work Widget -->
+    <div class="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-[100]" id="work-widget">
+        <div id="work-menu" class="hidden absolute bottom-full left-0 mb-4 w-[calc(100vw-48px)] sm:w-64 bg-white/80 backdrop-blur-xl border border-zinc-200 rounded-2xl shadow-2xl overflow-hidden transform origin-bottom-left transition-all duration-300 scale-95 opacity-0">
+            <div class="p-2 flex flex-col gap-1">
+                <a href="payverge.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-zinc-50 transition-colors group">
+                    <span class="text-zinc-500 group-hover:text-zinc-900 transition-colors font-medium">Payverge</span>
+                    <iconify-icon icon="solar:arrow-right-up-linear" class="text-zinc-300 group-hover:text-zinc-900 transition-colors"></iconify-icon>
+                </a>
+                <a href="arcadia.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-zinc-50 transition-colors group">
+                    <span class="text-zinc-500 group-hover:text-zinc-900 transition-colors font-medium">Arcadia</span>
+                    <iconify-icon icon="solar:arrow-right-up-linear" class="text-zinc-300 group-hover:text-zinc-900 transition-colors"></iconify-icon>
+                </a>
+                <a href="new.html" class="flex items-center justify-between p-3 rounded-xl bg-zinc-100 transition-colors group pointer-events-none">
+                    <span class="text-zinc-900 font-medium">New</span>
+                    <span class="text-[10px] text-zinc-400 uppercase font-medium">Current</span>
+                </a>
+                <a href="udrop.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-zinc-50 transition-colors group">
+                    <span class="text-zinc-500 group-hover:text-zinc-900 transition-colors font-medium">uDrop</span>
+                    <iconify-icon icon="solar:arrow-right-up-linear" class="text-zinc-300 group-hover:text-zinc-900 transition-colors"></iconify-icon>
+                </a>
+            </div>
+        </div>
+        <button id="work-trigger" class="bg-black text-white px-6 py-3 rounded-full flex items-center gap-3 shadow-xl hover:scale-105 active:scale-95 transition-all outline-none">
+            <span class="text-sm font-medium">Work</span>
+            <iconify-icon icon="solar:alt-arrow-up-linear" id="trigger-icon" class="transition-transform duration-300 text-lg"></iconify-icon>
+        </button>
+    </div>
+
     <script src="./js/script.js"></script>
 </body>
 
